@@ -1,10 +1,14 @@
 import './styles/main.scss'
+import Header from "./components/header/Header.jsx";
+import Sidebar from "./components/sidebar/Sidebar.jsx";
+
 function App() {
 
   return (
-    <>
-     App
-    </>
+      <>
+        <Header/>
+        <Sidebar/>
+      </>
   )
 }
 
