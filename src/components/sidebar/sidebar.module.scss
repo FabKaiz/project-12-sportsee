@@ -1,1 +1,44 @@
 @import '../../styles/global/_helpers';
+
+.sidebar {
+    @include flex(column, flex-end, center);
+    background: $black;
+    width: 117px;
+    min-height: calc(100vh - 9.1rem);
+    padding-bottom: 5rem;
+
+    .sidebarContent {
+        @include flex(column, space-between, center);
+        height: 80%;
+    }
+
+    .btns {
+        @include flex(column, center, center);
+        gap: 2rem;
+
+        .btn {
+            border-radius: 6px;
+            border: none;
+            background: none;
+            overflow: hidden;
+
+            img {
+                transition: all 0.2s ease-in-out;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .copyright {
+        color: $white;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+    }
+}

@@ -45,7 +45,6 @@ img {
 
 p, span, h4, h5, h6, button, input, textarea, label, select, option {
     font-size: 1.4rem;
-    font-weight: $weight-medium;
 
     @include media-up(sm) {
         font-size: 1.4rem;

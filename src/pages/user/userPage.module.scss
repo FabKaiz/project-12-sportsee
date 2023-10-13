@@ -1,0 +1,30 @@
+@import '../../styles/global/_helpers';
+
+.user {
+    display: flex;
+
+    main {
+        margin: 6.8rem 10.7rem 0;
+        width: 100%;
+
+        .intro {
+            .title,
+            .userName {
+                font-size: 4.8rem;
+                font-weight: $weight-medium;
+            }
+
+            .title {
+                margin-bottom: 3rem;
+
+                .userName {
+                    color: $chart-red-light;
+                }
+            }
+
+            p {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
