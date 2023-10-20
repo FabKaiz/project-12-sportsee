@@ -8,9 +8,12 @@ import user_performance from "../../mock/user_performance.js";
 import user_average_sessions from "../../mock/user_average_sessions.js";
 import { useParams } from "react-router-dom";
 import ActivityChart from "../../components/activityChart/ActivityChart.jsx";
+import SessionChart from "../../components/sessionChart/SessionChart.jsx";
+import PerformanceChart from "../../components/performanceChart/PerformanceChart.jsx";
+import ScoreChart from "../../components/scoreChart/ScoreChart.jsx";
 
-const UserPage = ({ user }) => {
-  const { userId } = useParams();
+const UserPage = ({user}) => {
+  const {userId} = useParams();
 
   // const { userId } = useParams();
   // const { title, description, equipments, host, location, pictures, rating, tags } = user
@@ -29,12 +32,11 @@ const UserPage = ({ user }) => {
     if (userId === 'mock') {
       setUserActivity(user_activity[0])
       setUserMainData(user_main_data[0])
-      // setUserPerformance(user_performance[0])
-      // setUserAverageSessions(user_average_sessions[0])
+      setUserAverageSessions(user_average_sessions[0])
+      setUserPerformance(user_performance[0])
     }
-  }, [])
+  }, [userId])
 
-  console.log(userActivity)
   return (
       <div className={styles.user}>
         <Sidebar />
@@ -45,7 +47,20 @@ const UserPage = ({ user }) => {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
 
-          {userActivity && <ActivityChart userActivity={userActivity} />}
+
+          <div className={styles.dashboard__container}>
+            <div className={styles.dashboard__left}>
+              {userActivity && <ActivityChart userActivity={userActivity} />}
+              <div className={styles.chart__bottom}>
+                {userAverageSessions && <SessionChart averageSession={userAverageSessions} />}
+                {userPerformance && <PerformanceChart performance={userPerformance} />}
+                {userMainData && <ScoreChart averageSession={userMainData} />}
+              </div>
+            </div>
+            <div className={styles.dashboard__right}>
+            </div>
+          </div>
+
         </main>
       </div>
   )

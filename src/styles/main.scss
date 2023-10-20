@@ -1,5 +1,9 @@
 @import './global/base';
 
-.recharts-responsive-container {
-    max-height: 400px;
+.recharts-legend-item .recharts-surface {
+    vertical-align: unset !important;
+}
+
+.recharts-wrapper {
+    position: unset !important;
 }

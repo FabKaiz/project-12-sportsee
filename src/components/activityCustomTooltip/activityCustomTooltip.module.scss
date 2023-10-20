@@ -1,0 +1,10 @@
+@import '../../styles/global/_helpers';
+
+.tooltip {
+    padding: 1.15rem;
+    background-color: $chart-red;
+    color: $white;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
