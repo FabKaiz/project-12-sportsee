@@ -1,5 +1,6 @@
 import styles from './activityChart.module.scss'
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import ActivityCustomTooltip from "../activityCustomTooltip/ActivityCustomTooltip.jsx";
 
 const ActivityChart = ({userActivity}) => {
   return (
@@ -10,20 +11,23 @@ const ActivityChart = ({userActivity}) => {
             <CartesianGrid strokeDasharray="3" vertical={false} />
             <XAxis
                 dataKey="day"
-                tick={{ fill: '#9B9EAC' }}
+                tick={{fill: '#9B9EAC'}}
                 tickLine={false}
                 stroke="#DEDEDE"
                 strokeWidth={2}
                 tickMargin={16}
                 tickFormatter={(day) => new Date(day).getDate()}
             />
-            <Tooltip cursor={{ fill: '#C4C4C4' }} />
+            <Tooltip cursor={{fill: '#C4C4C4'}} content={<ActivityCustomTooltip />} />
             <Legend
                 verticalAlign="top"
                 align="right"
                 iconType="circle"
                 iconSize="10"
+                iconAlign="right"
                 height={80}
+                style={{verticalAlign: "unset"}}
+                formatter={(value) => <span className={styles.legendText}>{value}</span>}
             />
             <Bar
                 dataKey="kilogram"
@@ -31,7 +35,6 @@ const ActivityChart = ({userActivity}) => {
                 name="Poids (kg)"
                 fill="#282D30"
                 radius={[3, 3, 0, 0]}
-
             />
             <Bar
                 dataKey="calories"
@@ -45,7 +48,7 @@ const ActivityChart = ({userActivity}) => {
                 orientation="right"
                 yAxisId="kilogram"
                 tickMargin={30}
-                tick={{ fill: '#9B9EAC' }}
+                tick={{fill: '#9B9EAC'}}
                 tickLine={false}
                 axisLine={false}
                 domain={['dataMin-2', 'dataMax+1']}
