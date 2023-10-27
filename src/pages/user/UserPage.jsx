@@ -13,15 +13,28 @@ import PerformanceChart from "../../components/performanceChart/PerformanceChart
 import ScoreChart from "../../components/scoreChart/ScoreChart.jsx";
 import CardChart from "../../components/cardChart/CardChart.jsx";
 
-const UserPage = ({user}) => {
+const UserPage = () => {
   const {userId} = useParams();
 
-  // const { userId } = useParams();
   // const { title, description, equipments, host, location, pictures, rating, tags } = user
-  // const [url, setUrl] = useState('');
+  const [userUrl, setUserUrl] = useState(`http://localhost:3000/user/${userId}`);
 
-  // const { data: users, isPending, error } = useFetch(url);
-  // get params from url
+  const {data: userData, isPending, error} = useFetch(userUrl);
+  const {data: userActivityData, isPending: isPendingActivity, error: errorActivity} = useFetch(userUrl + '/activity');
+  const {
+    data: userPerformanceData,
+    isPending: isPendingPerformance,
+    error: errorPerformance
+  } = useFetch(userUrl + '/performance');
+  const {
+    data: userAverageSessionsData,
+    isPending: isPendingAverageSessions,
+    error: errorAverageSessions
+  } = useFetch(userUrl + '/average-sessions');
+
+  console.log(userData)
+
+
   const [userMainData, setUserMainData] = useState(null)
   const [userActivity, setUserActivity] = useState(null)
   const [userPerformance, setUserPerformance] = useState(null)
@@ -29,14 +42,19 @@ const UserPage = ({user}) => {
 
 
   useEffect(() => {
-
     if (userId === 'mock') {
       setUserActivity(user_activity[0])
       setUserMainData(user_main_data[0])
       setUserAverageSessions(user_average_sessions[0])
       setUserPerformance(user_performance[0])
     }
-  }, [userId])
+
+    if (userData) setUserMainData(userData?.data)
+    if (userActivityData) setUserActivity(userActivityData?.data)
+    if (userPerformanceData) setUserPerformance(userPerformanceData?.data)
+    if (userAverageSessionsData) setUserAverageSessions(userAverageSessionsData?.data)
+  }, [userActivityData, userData, userId])
+
 
   return (
       <div className={styles.user}>
