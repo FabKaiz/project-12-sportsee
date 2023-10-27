@@ -1,8 +1,7 @@
 import styles from './scoreChart.module.scss'
 import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
 
-const ScoreChart = ({averageSession}) => {
-  const score = averageSession?.score || averageSession?.todayScore
+const ScoreChart = ({score}) => {
   const dataArray = [{name: 'score', value: score}]
 
   return (

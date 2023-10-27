@@ -7,7 +7,7 @@ const ActivityChart = ({userActivity}) => {
       <div className={styles.activityChart}>
         <h2 className={styles.title}>Activité quotidienne</h2>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={userActivity.sessions} barSize={7} barGap={8}>
+          <BarChart data={userActivity} barSize={7} barGap={8}>
             <CartesianGrid strokeDasharray="3" vertical={false} />
             <XAxis
                 dataKey="day"
