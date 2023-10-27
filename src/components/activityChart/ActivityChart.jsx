@@ -26,7 +26,6 @@ const ActivityChart = ({userActivity}) => {
                 iconSize="10"
                 iconAlign="right"
                 height={80}
-                style={{verticalAlign: "unset"}}
                 formatter={(value) => <span className={styles.legendText}>{value}</span>}
             />
             <Bar
