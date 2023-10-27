@@ -39,7 +39,6 @@ const UserPage = ({user}) => {
 
   return (
       <div className={styles.user}>
-        <Sidebar />
         <main>
           <div className={styles.intro}>
             <h1 className={styles.title}>Bonjour <span

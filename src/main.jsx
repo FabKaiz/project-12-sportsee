@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
-  createBrowserRouter, createRoutesFromElements, Route,
-  RouterProvider,
+  createBrowserRouter, createRoutesFromElements, Navigate, Route,
+  RouterProvider
 } from "react-router-dom";
 
 import Root from "./routes/root";
@@ -15,7 +15,8 @@ import './styles/main.scss'
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route element={<Layout />} errorElement={<Error />}>
-          <Route path="/" element={<Root />} />
+          <Route path="/" element={<Navigate replace to="/users" />} index={true} />
+          <Route path="/users" element={<Root />} />
           <Route
               path="user/:userId"
               element={<UserPage />}

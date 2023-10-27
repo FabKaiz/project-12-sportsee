@@ -1,5 +1,13 @@
 @import './global/base';
 
+.layout__content {
+    display: flex;
+
+    .outlet {
+        flex: 1;
+    }
+}
+
 .recharts-legend-item .recharts-surface {
     vertical-align: unset !important;
 }

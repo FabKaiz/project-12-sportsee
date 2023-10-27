@@ -9,12 +9,12 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to={`/`}>
+              <Link to={`/user/mock`}>
                 Accueil
               </Link>
             </li>
             <li>
-              <Link to={`/user/12`}>
+              <Link to={`/users`}>
                 Profil
               </Link>
             </li>

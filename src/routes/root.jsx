@@ -1,10 +1,10 @@
-import Home from "../pages/home/Home.jsx";
+import Users from "../pages/users/Users.jsx";
 
 const Root = () => {
   return (
-    <>
-      <Home />
-    </>
+      <>
+        <Users />
+      </>
   );
 };
 
