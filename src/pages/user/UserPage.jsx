@@ -11,6 +11,7 @@ import ActivityChart from "../../components/activityChart/ActivityChart.jsx";
 import SessionChart from "../../components/sessionChart/SessionChart.jsx";
 import PerformanceChart from "../../components/performanceChart/PerformanceChart.jsx";
 import ScoreChart from "../../components/scoreChart/ScoreChart.jsx";
+import CardChart from "../../components/cardChart/CardChart.jsx";
 
 const UserPage = ({user}) => {
   const {userId} = useParams();
@@ -57,6 +58,9 @@ const UserPage = ({user}) => {
               </div>
             </div>
             <div className={styles.dashboard__right}>
+              {userMainData?.keyData && Object.entries(userMainData.keyData).map((data, index) => {
+                return <CardChart key={index} data={data} />
+              })}
             </div>
           </div>
 

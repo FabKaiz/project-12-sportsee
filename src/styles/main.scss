@@ -4,12 +4,16 @@
     display: flex;
 
     .outlet {
-        flex: 1;
+        width: 100%;
     }
 }
 
 .recharts-legend-item .recharts-surface {
     vertical-align: unset !important;
+}
+
+.recharts-default-legend {
+    padding-top: 2.4rem !important;
 }
 
 .recharts-wrapper {

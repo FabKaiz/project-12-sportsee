@@ -3,7 +3,7 @@
 .sidebar {
     @include flex(column, flex-end, center);
     background: $black;
-    width: 117px;
+    min-width: 117px;
     min-height: calc(100vh - 9.1rem);
     padding-bottom: 5rem;
 

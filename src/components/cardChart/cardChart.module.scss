@@ -1,0 +1,27 @@
+@import '../../styles/global/_helpers';
+
+.cardChart_container {
+    padding: 3.2rem;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    min-width: 257px;
+
+    .cardChart_icon {
+        width: 6rem;
+        height: 6rem;
+        margin-right: 2.4rem;
+    }
+
+    .value {
+        font-size: 2rem;
+        font-weight: $weight-bold;
+    }
+
+    .cardChart_type {
+        font-size: 1.4rem;
+        font-weight: $weight-medium;
+        color: #74798C;
+    }
+}

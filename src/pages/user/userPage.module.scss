@@ -4,8 +4,12 @@
     display: flex;
 
     main {
-        margin: 6.8rem 10.7rem 0;
+        margin: 2.5rem 3.5rem 0;
         width: 100%;
+
+        @include media-up(lg) {
+            margin: 6.8rem 10.7rem 2rem;
+        }
 
         .intro {
             .title,
@@ -31,23 +35,31 @@
             width: 100%;
             height: auto;
             display: flex;
+            gap: 3.1rem;
 
             .dashboard__left {
-                width: 70%;
-                height: 70vh;
+                width: calc(100% - 280px);
+                min-height: 70vh;
             }
 
             .dashboard__right {
-                width: 30%;
-                height: 70vh;
+                display: flex;
+                flex-direction: column;
+                gap: 3.8rem;
+                margin-top: 7.7rem;
             }
 
             .chart__bottom {
                 display: grid;
                 gap: 3rem;
-                grid-template-columns: repeat(3, 1fr);
-                height: 100%;
-                max-height: 263px;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 263px);
+
+                @include media-up(lg) {
+                    max-height: 263px;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: 263px;
+                }
 
             }
         }
