@@ -34,17 +34,22 @@ const CardChart = ({data}) => {
   }, [data])
 
   return (
-      <div className={styles.cardChart_container}>
-        <div className={styles.cardChart_icon}>
-          <img src={cardIcon} alt={`${translatedData}`} />
-        </div>
-        <div className={styles.cardChart_text}>
-          <span className={styles.value}>
-          {data[1]}{valueUnit}
-          </span>
-          <div className={styles.cardChart_type}>{translatedData}</div>
-        </div>
-      </div>
+      <>
+        {data && (
+            <div className={styles.cardChart_container}>
+              <div className={styles.cardChart_icon}>
+                <img src={cardIcon} alt={`${translatedData}`} />
+              </div>
+              <div>
+                <span className={styles.value}>
+                  {data[1]}{valueUnit}
+                </span>
+                <div className={styles.cardChart_type}>{translatedData}</div>
+              </div>
+            </div>
+        )}
+      </>
+
   );
 };
 

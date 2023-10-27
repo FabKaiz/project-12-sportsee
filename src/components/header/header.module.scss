@@ -25,10 +25,22 @@
             li {
                 font-size: 2.4rem;
                 font-weight: $weight-medium;
-                transition: all 0.2s ease-in-out;
 
-                &:hover {
-                    color: $primary-red;
+                a {
+                    transition: all 0.2s ease-in-out;
+
+                    &.active {
+                        color: $primary-red;
+
+                        &:hover {
+                            color: $primary-red-darken;
+                        }
+                    }
+
+
+                    &:hover {
+                        color: $primary-red;
+                    }
                 }
             }
         }

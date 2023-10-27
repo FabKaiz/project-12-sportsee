@@ -1,6 +1,6 @@
 import styles from './header.module.scss'
 import Logo from '/assets/brand-logo.png?url';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,24 +9,24 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to={`/user/mock`}>
+              <NavLink to={`/user/mock`} className={({isActive}) => isActive ? `${styles.active}` : ""}>
                 Accueil
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to={`/users`}>
+              <NavLink to={`/users`}>
                 Profil
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to={`/reglage`}>
+              <NavLink to={`/reglage`}>
                 Réglage
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to={`/communaute`}>
+              <NavLink to={`/communaute`}>
                 Communauté
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
