@@ -32,7 +32,7 @@ const UserPage = () => {
 
   return (
       <>
-        {isPending && <div>Chargement...</div>}
+        {isPending && <div className={'loading'}>Chargement...</div>}
         {error && <Navigate to={'/error'} replace={true} state={{error: error}} />}
         {Object.keys(formattedUserData).length > 0 && (
             <div className={styles.user}>

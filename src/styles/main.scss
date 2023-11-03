@@ -21,3 +21,14 @@
 .recharts-wrapper {
     position: unset !important;
 }
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.4rem;
+    font-weight: $weight-medium;
+}
+
