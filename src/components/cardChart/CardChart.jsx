@@ -10,20 +10,25 @@ const CardChart = ({data}) => {
   const [valueUnit, setValueUnit] = useState('g')
   const [translatedData, setTranslatedData] = useState(null)
   const [cardIcon, setCardIcon] = useState(CaloriesIcon)
+  const [value, setValue] = useState(null)
 
   useEffect(() => {
     const translateDataAndSetIcon = () => {
       switch (data[0]) {
         case 'calorieCount':
+          setValue((data[1] / 1000).toFixed(3).replace('.', ',') )
           setValueUnit('kCal')
           return 'Calories'
         case 'proteinCount':
+          setValue(data[1])
           setCardIcon(ProteinIcon)
           return 'Protéines'
         case 'carbohydrateCount':
+          setValue(data[1])
           setCardIcon(CarbohydrateIcon)
           return 'Glucides'
         case 'lipidCount':
+          setValue(data[1])
           setCardIcon(LipidIcon)
           return 'Lipides'
         default:
@@ -42,7 +47,7 @@ const CardChart = ({data}) => {
               </div>
               <div>
                 <span className={styles.value}>
-                  {data[1]}{valueUnit}
+                  {value}{valueUnit}
                 </span>
                 <div className={styles.cardChart_type}>{translatedData}</div>
               </div>

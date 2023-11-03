@@ -1,7 +1,9 @@
 @import './global/base';
 
 .layout__content {
-    display: flex;
+    @include media-up(sm) {
+        display: flex;
+    }
 
     .outlet {
         width: 100%;

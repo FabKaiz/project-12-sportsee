@@ -1,26 +1,42 @@
 @import '../../styles/global/_helpers';
 
 .sidebar {
-    @include flex(column, flex-end, center);
     background: $black;
-    min-width: 117px;
-    min-height: calc(100vh - 9.1rem);
-    padding-bottom: 5rem;
+    @include media-up(sm) {
+        @include flex(column, flex-end, center);
+        min-width: 117px;
+        min-height: calc(100vh - 9.1rem);
+        padding-bottom: 5rem;
+    }
 
     .sidebarContent {
-        @include flex(column, space-between, center);
-        height: 80%;
+        @include flex(column, center, center);
+        @include media-up(sm) {
+            @include flex(column, space-between, center);
+            height: 80%;
+        }
     }
 
     .btns {
-        @include flex(column, center, center);
         gap: 2rem;
+        @include flex(row, center, center);
+        margin: 2rem 0;
+
+        @include media-up(sm) {
+            @include flex(column, center, center);
+            margin: 0;
+        }
 
         .btn {
             border-radius: 6px;
             border: none;
             background: none;
             overflow: hidden;
+
+            width: 4rem;
+            @include media-up(sm) {
+                width: unset;
+            }
 
             img {
                 transition: all 0.2s ease-in-out;
@@ -38,7 +54,11 @@
 
     .copyright {
         color: $white;
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
+        margin-bottom: 2rem;
+        @include media-up(sm) {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            margin-bottom: 0;
+        }
     }
 }

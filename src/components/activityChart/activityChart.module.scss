@@ -10,7 +10,11 @@
     margin-bottom: 3rem;
     padding: 2.4em 3.2rem;
     position: relative;
-    margin-top: 7.7rem;
+    margin-top: 0;
+
+    @include media-up(xl) {
+        margin-top: 7.7rem;
+    }
 
     .title {
         position: absolute;

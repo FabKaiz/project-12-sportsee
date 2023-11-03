@@ -7,7 +7,7 @@
         margin: 2.5rem 3.5rem 0;
         width: 100%;
 
-        @include media-up(lg) {
+        @include media-up(custom, 1480px) {
             margin: 6.8rem 10.7rem 2rem;
         }
 
@@ -36,29 +36,53 @@
             height: auto;
             display: flex;
             gap: 3.1rem;
+            flex-direction: column-reverse;
+
+            @include media-up(xl) {
+                flex-direction: row;
+            }
 
             .dashboard__left {
-                width: calc(100% - 290px);
-                min-height: 70vh;
+                @include media-up(xl) {
+                    min-height: 70vh;
+                    width: calc(100% - 290px);
+                }
             }
 
             .dashboard__right {
-                display: flex;
-                flex-direction: column;
-                gap: 3.8rem;
-                margin-top: 7.7rem;
+                display: grid;
+
+                @include media-up(sm) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                gap: 1.4rem;
+
+                @include media-up(xl) {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 7.7rem;
+                    gap: 3.8rem;
+                }
             }
 
             .chart__bottom {
                 display: grid;
                 gap: 3rem;
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2, 263px);
+                grid-template-rows: repeat(3, 263px);
+                grid-template-columns: 1fr;
 
-                @include media-up(lg) {
-                    max-height: 263px;
+                @include media-up(sm) {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 263px);
+                }
+
+                @include media-up(md) {
                     grid-template-columns: repeat(3, 1fr);
                     grid-template-rows: 263px;
+                }
+
+                @include media-up(xl) {
+                    max-height: 263px;
                 }
 
             }
