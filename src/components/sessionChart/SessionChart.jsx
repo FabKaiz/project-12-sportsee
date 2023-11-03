@@ -26,7 +26,22 @@ const SessionChart = ({averageSession}) => {
               </h2>
               <ResponsiveContainer width="100%" height="80%" className={styles.sessionChartContainer}>
 
-                <LineChart data={averageSession.sessions}>
+                <LineChart data={averageSession.sessions}
+                   onMouseMove={(e) => {
+                     if (e.isTooltipActive) {
+                       const div = document.querySelector('._sessionChart_1egv7_1');
+                       const windowWidth = div?.clientWidth;
+
+                       if (windowWidth !== null && windowWidth !== undefined) {
+                         const mouseXpercentage = Math.round((e.activeCoordinate.x / windowWidth) * 100);
+                         div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(168 ,0,0,1) ${mouseXpercentage}%)`;
+                       }
+                     } else {
+                       const div = document.querySelector('._sessionChart_1egv7_1');
+                       div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) 100%, rgba(168 ,0,0,1) 0%)`;
+                     }
+                   }}
+                >
                   <Line
                       type="natural"
                       dataKey="sessionLength"
