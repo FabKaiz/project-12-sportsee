@@ -34,7 +34,7 @@ const SessionChart = ({averageSession}) => {
 
                        if (windowWidth !== null && windowWidth !== undefined) {
                          const mouseXpercentage = Math.round((e.activeCoordinate.x / windowWidth) * 100);
-                         div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(168 ,0,0,1) ${mouseXpercentage}%)`;
+                         div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(230 ,0,0,1) ${mouseXpercentage}%)`;
                        }
                      } else {
                        const div = document.querySelector('._sessionChart_1egv7_1');
