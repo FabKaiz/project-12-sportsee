@@ -43,9 +43,12 @@
             }
 
             .dashboard__left {
+                height: 32rem;
+
                 @include media-up(xl) {
                     min-height: 70vh;
                     width: calc(100% - 290px);
+                    height: auto;
                 }
             }
 
