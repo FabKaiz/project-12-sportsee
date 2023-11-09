@@ -11,7 +11,7 @@ import SessionChart from "../../components/sessionChart/SessionChart.jsx";
 import PerformanceChart from "../../components/performanceChart/PerformanceChart.jsx";
 import ScoreChart from "../../components/scoreChart/ScoreChart.jsx";
 import CardChart from "../../components/cardChart/CardChart.jsx";
-import setUser from "../../models/user.js";
+import UserFormatter from "../../models/user.js";
 
 const UserPage = () => {
   const {userId} = useParams();
@@ -23,11 +23,17 @@ const UserPage = () => {
 
 
   useEffect(() => {
+    let formattedUser;
+
     if (userId === 'mock') {
-      setFormattedUserData(setUser(user_main_data[0], user_activity[0], user_performance[0], user_average_sessions[0]))
+      const userFormatter = new UserFormatter(user_main_data[0], user_activity[0], user_performance[0], user_average_sessions[0]);
+      formattedUser = userFormatter.getUser();
     } else if (fetchedUserData) {
-      setFormattedUserData(setUser(fetchedUserData[0].data, fetchedUserData[1].data, fetchedUserData[2].data, fetchedUserData[3].data))
+      const userFormatter = new UserFormatter(fetchedUserData[0].data, fetchedUserData[1].data, fetchedUserData[2].data, fetchedUserData[3].data);
+      formattedUser = userFormatter.getUser();
     }
+
+    if (formattedUser) setFormattedUserData(formattedUser);
   }, [fetchedUserData, userId])
 
   return (

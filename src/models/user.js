@@ -1,11 +1,17 @@
-export default function setUser(userMainData, userActivity, userPerformance, userAverageSessions) {
-  const user = {}
-  user.userInfos = userMainData.userInfos
-  user.score = userMainData.todayScore ? userMainData.todayScore : userMainData.score
-  user.keyData = userMainData.keyData
-  user.sessions = userActivity.sessions
-  user.performance = userPerformance
-  user.averageSessions = userAverageSessions
+class UserFormatter {
+  constructor(userMainData, userActivity, userPerformance, userAverageSessions) {
+    this.user = {};
+    this.user.userInfos = userMainData.userInfos;
+    this.user.score = userMainData.todayScore ? userMainData.todayScore : userMainData.score;
+    this.user.keyData = userMainData.keyData;
+    this.user.sessions = userActivity.sessions;
+    this.user.performance = userPerformance;
+    this.user.averageSessions = userAverageSessions;
+  }
 
-  return user
+  getUser() {
+    return this.user;
+  }
 }
+
+export default UserFormatter;
